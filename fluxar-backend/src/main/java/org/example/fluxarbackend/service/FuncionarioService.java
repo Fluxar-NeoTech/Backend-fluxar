@@ -4,11 +4,13 @@ import org.example.fluxarbackend.exception.CargoInexistenteException;
 import org.example.fluxarbackend.exception.ErroLoginException;
 import org.example.fluxarbackend.model.Funcionario;
 import org.example.fluxarbackend.repository.FuncionarioRepository;
+import org.example.fluxarbackend.validacion.FuncionarioPathValidacion;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -53,7 +55,11 @@ public class FuncionarioService {
         return funcionarioRepository.save(funcionarioExistente);
     }
 
-    public Funcionario loginFuncionario( String email, String senha) {
+    public Funcionario loginFuncionario(Map<String, Object> login) {
+        FuncionarioPathValidacion validacion = new FuncionarioPathValidacion();
+        String senha = login.get("senha").toString();
+        String email = login.get("email").toString();
+        validacion.verificarSenha(senha);
         return funcionarioRepository.findByEmailAndSenha(email, senha).orElseThrow(ErroLoginException::new);
     }
 }

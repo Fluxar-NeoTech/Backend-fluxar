@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @CrossOrigin("*")
 @RestController
@@ -49,10 +50,10 @@ public class FucionarioController {
         return ResponseEntity.status(HttpStatus.OK).body(funcionarioAtualizado.toString());
     }
 
-    @PostMapping("login/{email}/{senha}")
-    public ResponseEntity<String> login (@Valid @PathVariable String email, @Valid @PathVariable String senha) {
-        Funcionario funcionario = funcionarioService.loginFuncionario(email, senha);
-        return ResponseEntity.status(HttpStatus.OK).body(funcionario.toString());
+    @PostMapping("login")
+    public ResponseEntity<String> login ( @RequestBody Map<String, Object> login) {
+        Funcionario loginFuncionario = funcionarioService.loginFuncionario(login);
+        return ResponseEntity.status(HttpStatus.OK).body(loginFuncionario.toString());
     }
 
 }

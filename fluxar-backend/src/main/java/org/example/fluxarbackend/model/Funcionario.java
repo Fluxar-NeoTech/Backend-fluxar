@@ -51,6 +51,10 @@ public class Funcionario {
         this.setor_id = setor_id;
         this.unidade_id = unidade_id;
     }
+    public Funcionario(String email, String senha) {
+        this.email = email;
+        this.senha = senha;
+    }
 
     public Funcionario() {}
 
@@ -68,11 +72,11 @@ public class Funcionario {
         return id;
     }
 
-    public @Size(min = 2, message = "Nome invalido, coloque um nome maior ") @NotNull(message = "O campo nome não pode ser null") @NotBlank(message = "O campo nome não pode estar branco") String getNome() {
+    public String getNome() {
         return nome;
     }
 
-    public void setNome(@Size(min = 2, message = "Nome invalido, coloque um nome maior ") @NotNull(message = "O campo nome não pode ser null") @NotBlank(message = "O campo nome não pode estar branco") String nome) {
+    public void setNome(String nome) {
         this.nome = nome;
     }
 
@@ -92,11 +96,11 @@ public class Funcionario {
         this.setor_id = setor_id;
     }
 
-    public @NotNull(message = "O campo sobrenome não pode ser null") @NotBlank(message = "O campo sobrenome não pode estar branco") String getSobrenome() {
+    public String getSobrenome() {
         return sobrenome;
     }
 
-    public void setSobrenome(@NotNull(message = "O campo sobrenome não pode ser null") @NotBlank(message = "O campo sobrenome não pode estar branco") String sobrenome) {
+    public void setSobrenome(String sobrenome) {
         this.sobrenome = sobrenome;
     }
 
@@ -128,6 +132,7 @@ public class Funcionario {
                 ", senha='" + senha + '\'' +
                 ", unidade_id=" + unidade_id +
                 ", setor_id=" + setor_id +
+                ", gmail= "+ email +
                 '}';
     }
 }
