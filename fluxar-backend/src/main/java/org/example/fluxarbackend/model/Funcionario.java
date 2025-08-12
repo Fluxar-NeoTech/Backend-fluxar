@@ -30,7 +30,6 @@ public class Funcionario {
 
     // Controllers
 
-
     public Funcionario( long id, String nome, String sobrenome, String email, String senha, String cargo, Long setor_id, Long unidade_id) {
         this.id = id;
         this.nome = nome;
@@ -50,10 +49,6 @@ public class Funcionario {
         this.cargo = cargo;
         this.setor_id = setor_id;
         this.unidade_id = unidade_id;
-    }
-    public Funcionario(String email, String senha) {
-        this.email = email;
-        this.senha = senha;
     }
 
     public Funcionario() {}

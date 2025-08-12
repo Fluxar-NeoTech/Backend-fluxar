@@ -32,7 +32,7 @@ public class FuncionarioService {
     }
 
     public Funcionario salvarFuncionario(Funcionario funcionario) {
-        if (funcionario.getCargo().equals("G") || funcionario.getNome().equals("A")) {
+        if (funcionario.getCargo().equals("G") || funcionario.getCargo().equals("A")) {
             return funcionarioRepository.save(funcionario);
         }
         throw new CargoInexistenteException();
