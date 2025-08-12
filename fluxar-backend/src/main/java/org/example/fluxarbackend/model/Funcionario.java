@@ -96,11 +96,11 @@ public class Funcionario {
         this.setor_id = setor_id;
     }
 
-    public @NotNull(message = "O campo sobrenome não pode ser null") @NotBlank(message = "O campo sobrenome não pode estar branco") String getSobrenome() {
+    public String getSobrenome() {
         return sobrenome;
     }
 
-    public void setSobrenome(@NotNull(message = "O campo sobrenome não pode ser null") @NotBlank(message = "O campo sobrenome não pode estar branco") String sobrenome) {
+    public void setSobrenome(String sobrenome) {
         this.sobrenome = sobrenome;
     }
 
