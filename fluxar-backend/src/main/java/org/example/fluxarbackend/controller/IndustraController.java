@@ -31,13 +31,13 @@ public class IndustraController {
     }
 
     @PostMapping("adicionarIndustria")
-    public ResponseEntity<String> adicionarIndustria(@RequestBody Industria industria) {
+    public ResponseEntity<String> adicionarIndustria(@Valid @RequestBody Industria industria) {
         Industria industriaInserida = industriaService.salvarIndustria(industria);
         return ResponseEntity.status(HttpStatus.CREATED).body(industriaInserida.toString());
     }
 
     @DeleteMapping ("deletarIndustria/{id}")
-    public ResponseEntity<String> excluirIndustria(@RequestBody Long id) {
+    public ResponseEntity<String> excluirIndustria(@Valid @PathVariable Long id) {
         Industria industriaExcluida = industriaService.excluirIndustria(id);
         return ResponseEntity.status(HttpStatus.OK).body(industriaExcluida.toString());
     }
