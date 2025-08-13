@@ -12,10 +12,10 @@ import java.util.List;
 @CrossOrigin("*")
 @RestController
 @RequestMapping("/api/industria")
-public class IndustraController {
+public class IndustriaController {
     private final IndustriaService industriaService;
 
-    public IndustraController(IndustriaService industriaService) {
+    public IndustriaController(IndustriaService industriaService) {
         this.industriaService = industriaService;
     }
 
