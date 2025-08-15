@@ -1,6 +1,8 @@
 package org.example.fluxarbackend.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -9,26 +11,36 @@ import jakarta.validation.constraints.Size;
 @Entity
 public class Funcionario {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     @Size(min = 2, message = "Nome invalido, coloque um nome maior ")
     @NotNull(message = "O campo nome não pode ser null")
     @NotBlank(message = "O campo nome não pode estar branco")
     private String nome;
+
     @NotNull(message = "O campo sobrenome não pode ser null")
     @NotBlank(message = "O campo sobrenome não pode estar branco")
     private String sobrenome;
+
     @NotNull(message = "O campo email não pode ser null")
     @NotBlank(message = "O campo email não pode estar branco")
     @Size(min = 6, message = "o email deve ser maior que 6 caracteres")
     private String email;
+
     @Size(min = 5, message = "Senha invalido, coloque uma senha maior que 5 caracteres")
     @NotNull(message = "O campo nome não pode ser null")
     private String senha;
+
+    @NotNull(message = "O campo email não pode ser null")
+    @NotBlank(message = "O campo email não pode estar branco")
     private String cargo;
+
     private Long unidade_id;
+
     private Long setor_id;
 
-    // Controllers
+    // Construtores
 
     public Funcionario( long id, String nome, String sobrenome, String email, String senha, String cargo, Long setor_id, Long unidade_id) {
         this.id = id;
@@ -115,7 +127,7 @@ public class Funcionario {
         this.email = email;
     }
 
-    //toString
+    // toString
 
     @Override
     public String toString() {
