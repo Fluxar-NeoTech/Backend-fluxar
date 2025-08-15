@@ -33,21 +33,15 @@ public class FucionarioController {
     }
 
     @PostMapping("adicionarFuncionario")
-    public ResponseEntity<String> adicionar_funcionario ( @Valid @RequestBody Funcionario funcionario) {
-        Funcionario funcionarioinserido = funcionarioService.salvarFuncionario(funcionario);
-        return ResponseEntity.status(HttpStatus.CREATED).body(funcionarioinserido.toString());
+    public ResponseEntity<String> adicionarFuncionario ( @Valid @RequestBody Funcionario funcionario) {
+        Funcionario funcionarioInserido = funcionarioService.salvarFuncionario(funcionario);
+        return ResponseEntity.status(HttpStatus.CREATED).body(funcionarioInserido.toString());
     }
 
-    @PostMapping("deletarFuncionario/{id}")
-    public ResponseEntity<String> deletar_funcionario ( @Valid @PathVariable Long id) {
-        Funcionario funcionarioInserido = funcionarioService.excluirFuncionario(id);
-        return ResponseEntity.status(HttpStatus.OK).body(funcionarioInserido.toString());
-    }
-
-    @PutMapping("atulizarFuncionario/{id}")
-    public ResponseEntity<String> atualizar_funcionario ( @Valid @PathVariable Long id, @Valid @RequestBody Funcionario funcionario) {
-        Funcionario funcionarioAtualizado = funcionarioService.atualizarFuncionario(id, funcionario);
-        return ResponseEntity.status(HttpStatus.OK).body(funcionarioAtualizado.toString());
+    @DeleteMapping("deletarFuncionario/{id}")
+    public ResponseEntity<String> deletarFuncionario ( @Valid @PathVariable Long id) {
+        Funcionario funcionarioExcluido = funcionarioService.excluirFuncionario(id);
+        return ResponseEntity.status(HttpStatus.OK).body(funcionarioExcluido.toString());
     }
 
     @PostMapping("login")
