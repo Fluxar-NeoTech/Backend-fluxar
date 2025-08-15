@@ -44,12 +44,6 @@ public class FucionarioController {
         return ResponseEntity.status(HttpStatus.OK).body(funcionarioExcluido.toString());
     }
 
-    @PutMapping("atulizarFuncionario/{id}")
-    public ResponseEntity<String> atualizarFuncionario ( @Valid @PathVariable Long id, @Valid @RequestBody Funcionario funcionario) {
-        Funcionario funcionarioAtualizado = funcionarioService.atualizarFuncionario(id, funcionario);
-        return ResponseEntity.status(HttpStatus.OK).body(funcionarioAtualizado.toString());
-    }
-
     @PostMapping("login")
     public ResponseEntity<String> login ( @RequestBody Map<String, Object> login) {
         Funcionario loginFuncionario = funcionarioService.loginFuncionario(login);

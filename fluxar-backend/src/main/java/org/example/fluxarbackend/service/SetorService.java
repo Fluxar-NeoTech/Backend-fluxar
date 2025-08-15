@@ -34,13 +34,4 @@ public class SetorService {
         setorRepository.delete(setor);
         return setor;
     }
-
-    public Setor atualizarSetor(Long id, Setor setor) {
-        Setor setorExistente = buscarSetorPorId(id);
-
-        setorExistente.setNome(setor.getNome());
-        setorExistente.setDescricao(setor.getDescricao());
-
-        return setorRepository.save(setorExistente);
-    }
 }

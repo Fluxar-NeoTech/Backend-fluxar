@@ -40,10 +40,4 @@ public class SetorController {
         Setor setorExcluido = setorService.excluirSetor(id);
         return ResponseEntity.status(HttpStatus.OK).body(setorExcluido.toString());
     }
-
-    @PutMapping("atualizarSetor/{id}")
-    public ResponseEntity<String> atualizarSetor(@PathVariable Long id, @Valid @RequestBody Setor setor){
-        Setor setorAtualizado = setorService.atualizarSetor(id, setor);
-        return ResponseEntity.status(HttpStatus.OK).body(setorAtualizado.toString());
-    }
 }

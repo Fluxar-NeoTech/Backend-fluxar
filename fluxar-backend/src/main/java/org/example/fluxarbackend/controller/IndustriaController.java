@@ -41,12 +41,6 @@ public class IndustriaController {
         Industria industriaExcluida = industriaService.excluirIndustria(id);
         return ResponseEntity.status(HttpStatus.OK).body(industriaExcluida.toString());
     }
-
-    @PutMapping("atualizarIndustria/{id}")
-    public ResponseEntity<String> atualizarIndustria(@Valid @PathVariable Long id,@Valid @RequestBody Industria industria) {
-        Industria industriaAtualizada = industriaService.atualizarIndustria(id, industria);
-        return ResponseEntity.status(HttpStatus.OK).body(industriaAtualizada.toString());
-    }
 }
 
 

@@ -34,14 +34,4 @@ public class IndustriaService {
         industriaRepository.delete(industria);
         return industria;
     }
-
-    public Industria atualizarIndustria(Long id, Industria industria){
-        Industria industriaExistente = buscarIndustria(id);
-
-        industriaExistente.setNome(industria.getNome());
-        industriaExistente.setCnpj(industria.getCnpj());
-        industriaExistente.setEmail(industria.getEmail());
-
-        return industriaRepository.save(industriaExistente);
-    }
 }
