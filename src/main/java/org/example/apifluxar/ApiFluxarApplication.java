@@ -8,6 +8,7 @@ public class ApiFluxarApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(ApiFluxarApplication.class, args);
+
     }
 
 }
