@@ -15,20 +15,22 @@ public class Employee {
     private String email ;
     private String senha;
     private Character cargo;
-    private long setor_id;
-    private long unidade_id;
+    @Column(name = "setor_id")
+    private long setorId;
+    @Column(name = "unidade_id")
+    private long unidadeId;
 
     //Construct
 
-    public Employee(Character cargo, String email, long id, String nome, String senha, long setor_id, String sobrenome, long unidade_id) {
+    public Employee(Character cargo, String email, long id, String nome, String senha, long setorId, String sobrenome, long unidadeId) {
         this.cargo = cargo;
         this.email = email;
         this.id = id;
         this.nome = nome;
         this.senha = senha;
-        this.setor_id = setor_id;
+        this.setorId = setorId;
         this.sobrenome = sobrenome;
-        this.unidade_id = unidade_id;
+        this.unidadeId = unidadeId;
     }
 
 
@@ -83,19 +85,19 @@ public class Employee {
         this.cargo = cargo;
     }
 
-    public long getSetor_id() {
-        return setor_id;
+    public long getSetorId() {
+        return setorId;
     }
 
-    public void setSetor_id(long setor_id) {
-        this.setor_id = setor_id;
+    public void setSetorId(long setorId) {
+        this.setorId = setorId;
     }
 
-    public long getUnidade_id() {
-        return unidade_id;
+    public long getUnidadeId() {
+        return unidadeId;
     }
 
-    public void setUnidade_id(long unidade_id) {
-        this.unidade_id = unidade_id;
+    public void setUnidadeId(long unidade_id) {
+        this.unidadeId = unidadeId;
     }
 }

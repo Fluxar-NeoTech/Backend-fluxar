@@ -1,11 +1,11 @@
 package org.example.apifluxar.dto;
 
-public class EmployeeReposeDTO {
+import jakarta.persistence.Column;
+
+public class EmployeeResponseDTO {
     private long id;
     private String nome;
     private String sobrenome;
-    private String email ;
-    private Character cargo;
     private long setor_id;
     private long unidade_id;
 
@@ -24,30 +24,14 @@ public class EmployeeReposeDTO {
     public void setNome(String nome) {
         this.nome = nome;
     }
+    public void setSobrenome(String sobrenome) {
+        this.sobrenome = sobrenome;
+    }
 
     public String getSobrenome() {
         return sobrenome;
     }
 
-    public void setSobrenome(String sobrenome) {
-        this.sobrenome = sobrenome;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public Character getCargo() {
-        return cargo;
-    }
-
-    public void setCargo(Character cargo) {
-        this.cargo = cargo;
-    }
 
     public long getSetor_id() {
         return setor_id;
