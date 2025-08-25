@@ -1,15 +1,6 @@
-package org.example.apifluxar.model;
+package org.example.apifluxar.dto;
 
-import jakarta.persistence.*;
-
-// We only read this table, so no further validations are needed.
-@Entity
-@Table(name = "Funcionario")
-public class Employee {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-
+public class EmployeeRequestDTO {
     private String nome;
     private String sobrenome;
     private String email ;
@@ -18,30 +9,7 @@ public class Employee {
     private long setor_id;
     private long unidade_id;
 
-    //Construct
-
-    public Employee(Character cargo, String email, long id, String nome, String senha, long setor_id, String sobrenome, long unidade_id) {
-        this.cargo = cargo;
-        this.email = email;
-        this.id = id;
-        this.nome = nome;
-        this.senha = senha;
-        this.setor_id = setor_id;
-        this.sobrenome = sobrenome;
-        this.unidade_id = unidade_id;
-    }
-
-
-    public Employee() {}
-
-    //Getter e Setter
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
+    // Getter e Setter
 
     public String getNome() {
         return nome;
@@ -49,14 +17,6 @@ public class Employee {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public String getSobrenome() {
-        return sobrenome;
-    }
-
-    public void setSobrenome(String sobrenome) {
-        this.sobrenome = sobrenome;
     }
 
     public String getEmail() {
@@ -89,6 +49,14 @@ public class Employee {
 
     public void setSetor_id(long setor_id) {
         this.setor_id = setor_id;
+    }
+
+    public String getSobrenome() {
+        return sobrenome;
+    }
+
+    public void setSobrenome(String sobrenome) {
+        this.sobrenome = sobrenome;
     }
 
     public long getUnidade_id() {

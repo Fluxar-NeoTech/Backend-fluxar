@@ -1,40 +1,14 @@
-package org.example.apifluxar.model;
+package org.example.apifluxar.dto;
 
-import jakarta.persistence.*;
-
-// We only read this table, so no further validations are needed.
-@Entity
-@Table(name = "Funcionario")
-public class Employee {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class EmployeeReposeDTO {
     private long id;
-
     private String nome;
     private String sobrenome;
     private String email ;
-    private String senha;
     private Character cargo;
     private long setor_id;
     private long unidade_id;
 
-    //Construct
-
-    public Employee(Character cargo, String email, long id, String nome, String senha, long setor_id, String sobrenome, long unidade_id) {
-        this.cargo = cargo;
-        this.email = email;
-        this.id = id;
-        this.nome = nome;
-        this.senha = senha;
-        this.setor_id = setor_id;
-        this.sobrenome = sobrenome;
-        this.unidade_id = unidade_id;
-    }
-
-
-    public Employee() {}
-
-    //Getter e Setter
     public long getId() {
         return id;
     }
@@ -65,14 +39,6 @@ public class Employee {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
     }
 
     public Character getCargo() {

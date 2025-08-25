@@ -1,5 +1,7 @@
 package org.example.apifluxar.controller;
 
+import org.example.apifluxar.dto.EmployeeReposeDTO;
+import org.example.apifluxar.dto.EmployeeRequestDTO;
 import org.example.apifluxar.model.Employee;
 import org.example.apifluxar.service.EmployeeService;
 import org.springframework.http.ResponseEntity;
@@ -15,14 +17,20 @@ public class EmployeeController {
         this.employeeService = employeeService;
     }
     @GetMapping("search/{id}")
-    public ResponseEntity<Employee> selectId(@PathVariable long id) {
-        Employee res =  employeeService.getEmployeeById(id);
+    public ResponseEntity<EmployeeReposeDTO> selectId(@PathVariable long id) {
+         EmployeeReposeDTO res =  employeeService.getEmployeeById(id);
+        return ResponseEntity.ok(res);
+    }
+
+    @GetMapping("search/email/{email}")
+    public ResponseEntity<EmployeeReposeDTO> selectEmail(@PathVariable String email) {
+        EmployeeReposeDTO res =  employeeService.getEmployeeByEmail(email);
         return ResponseEntity.ok(res);
     }
 
     @PostMapping("/login")
-    public ResponseEntity<Employee> login(@RequestBody Employee employee) {
-        Employee res =  employeeService.login(employee);
+    public ResponseEntity<EmployeeReposeDTO> login(@RequestBody EmployeeRequestDTO employeeRequestDTO) {
+        EmployeeReposeDTO res =  employeeService.login(employeeRequestDTO);
         return ResponseEntity.ok(res);
     }
 
