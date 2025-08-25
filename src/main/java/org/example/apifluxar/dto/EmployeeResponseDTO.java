@@ -24,6 +24,7 @@ public class EmployeeResponseDTO {
     public void setNome(String nome) {
         this.nome = nome;
     }
+
     public void setSobrenome(String sobrenome) {
         this.sobrenome = sobrenome;
     }

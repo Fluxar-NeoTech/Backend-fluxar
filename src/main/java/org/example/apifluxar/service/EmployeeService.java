@@ -37,7 +37,7 @@ public class EmployeeService {
         return employeeReposeDTO;
     }
 
-    public EmployeeResponseDTO getEmployeeById(long id) {
+    public EmployeeResponseDTO getEmployeeById(Long id) {
        Employee employee = employeeRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
        return fromEmployeeResposeDTO(employee);
 
