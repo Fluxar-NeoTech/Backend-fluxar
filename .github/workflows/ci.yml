@@ -1,0 +1,40 @@
+name: Java Spring CI - Simplificado
+
+on:
+  push:
+    branches: [ main, master, develop ]
+  pull_request:
+    branches: [ main, master, develop ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout do código
+      uses: actions/checkout@v4
+
+    - name: Configurar Java
+      uses: actions/setup-java@v3
+      with:
+        distribution: 'temurin'
+        java-version: '17'
+        cache: 'maven'
+
+    - name: Build e testes
+      run: |
+        if [ -f "pom.xml" ]; then
+          mvn clean compile test -q
+          mvn package -DskipTests -q
+        elif [ -f "build.gradle" ]; then
+          gradle clean build -q
+        fi
+
+    - name: Verificar resultados
+      run: |
+        if [ -f "target/.jar" ] || [ -f "build/libs/.jar" ]; then
+          echo "✅ Build realizado com sucesso!"
+        else
+          echo "❌ Falha no build!"
+          exit 1
+        fi
