@@ -22,6 +22,16 @@ public class SubscriptionService {
         return subscription;
     }
 
+    public Subscription getSubscriptionByPlanId(Long planId){
+        Subscription subscription = subscriptionRepository.findById(planId).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+        return subscription;
+    }
+
+    public Subscription getSubscriptionByIndustryId(Long industryId){
+        Subscription subscription = subscriptionRepository.findById(industryId).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+        return subscription;
+    }
+
     public void defineStatus(Subscription subscription){
         LocalDateTime now = LocalDateTime.now();
 
