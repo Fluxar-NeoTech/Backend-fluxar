@@ -24,21 +24,12 @@ public class PlanService {
         PlanResponseDTO planResponseDTO = new PlanResponseDTO();
         planResponseDTO.setNome(plan.getNome());
         planResponseDTO.setPreco(plan.getPreco());
-        planResponseDTO.setDuracaoMeses(calculatePlanDuration(plan));
+        planResponseDTO.setDuracaoMeses(plan.getDuracaoMeses());
         return planResponseDTO;
     }
 
     public PlanResponseDTO getPlanById(Long id) {
         Plan plan = planRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
         return fromPlanResponseDTO(plan);
-    }
-
-    public Integer calculatePlanDuration(Plan plan) {
-        Subscription subscriptionPlan = subscriptionService.getSubcriptionByPlanId(plan.getId());
-        LocalDateTime dataInicio = subscriptionPlan.getDataInicio();
-        LocalDateTime dataFim = subscriptionPlan.getDataFim();
-        long meses = ChronoUnit.MONTHS.between(dataInicio, dataFim);
-
-        return (int) meses;
     }
 }

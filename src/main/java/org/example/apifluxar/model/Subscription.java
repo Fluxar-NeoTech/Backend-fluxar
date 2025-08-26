@@ -23,6 +23,8 @@ public class Subscription {
     @Column(name = "data_fim")
     private LocalDateTime dataFim;
 
+    private Character status;
+
     //Constructor
 
     public Subscription(Long id, Long industriaId, Long planoId, LocalDateTime dataInicio, LocalDateTime dataFim) {
@@ -75,5 +77,13 @@ public class Subscription {
 
     public void setDataFim(LocalDateTime dataFim) {
         this.dataFim = dataFim;
+    }
+
+    public Character getStatus() {
+        return status;
+    }
+
+    public void setStatus(Character status) {
+        this.status = status;
     }
 }

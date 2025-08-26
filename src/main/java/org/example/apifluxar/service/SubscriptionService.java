@@ -6,6 +6,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.time.LocalDateTime;
+
 @Service
 public class SubscriptionService {
 
@@ -20,8 +22,15 @@ public class SubscriptionService {
         return subscription;
     }
 
-    public Subscription getSubcriptionByPlanId(Long planId){
-        Subscription subscription = subscriptionRepository.findById(planId).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
-        return subscription;
+    public void defineStatus(Subscription subscription){
+        LocalDateTime now = LocalDateTime.now();
+
+        if (now.isBefore(subscription.getDataFim())) {
+            subscription.setStatus('A');
+        } else if (now.isAfter(subscription.getDataFim())) {
+            subscription.setStatus('I');
+        } else {
+            subscription.setStatus('I');
+        }
     }
 }
