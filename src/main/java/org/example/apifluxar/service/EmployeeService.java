@@ -32,8 +32,6 @@ public class EmployeeService {
         employeeReposeDTO.setNome(employee.getNome());
         employeeReposeDTO.setSobrenome(employee.getSobrenome());
         employeeReposeDTO.setId(employee.getId());
-        employeeReposeDTO.setSetor_id(employee.getSetorId());
-        employeeReposeDTO.setUnidade_id(employee.getUnidadeId());
         return employeeReposeDTO;
     }
 
@@ -55,4 +53,6 @@ public class EmployeeService {
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.UNAUTHORIZED));
         return fromEmployeeResposeDTO(employee);
     }
+
+    //
 }
