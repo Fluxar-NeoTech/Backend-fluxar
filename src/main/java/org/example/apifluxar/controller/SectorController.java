@@ -18,8 +18,8 @@ public class SectorController {
         SectorResponseDTO sectorResponseDTO = sectorService.getSectorById(id);
         return sectorResponseDTO;
     }
-    @GetMapping("search/name/{id}")
-    public SectorResponseDTO selectNAme(@PathVariable String name) {
+    @GetMapping("search/name/{name}")
+    public SectorResponseDTO selectName(@PathVariable String name) {
         SectorResponseDTO sectorResponseDTO = sectorService.getSectorByName(name);
         return sectorResponseDTO;
     }

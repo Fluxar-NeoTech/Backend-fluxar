@@ -27,7 +27,7 @@ public class SectorService {
     }
 
     public SectorResponseDTO getSectorByName(String name) {
-        Sector sector = sectorRepository.findByName(name).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+        Sector sector = sectorRepository.findByNome(name).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
         return fromSectorResponseDTO(sector);
     }
 }
