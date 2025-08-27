@@ -31,16 +31,4 @@ public class SubscriptionService {
         Subscription subscription = subscriptionRepository.findById(industryId).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
         return subscription;
     }
-
-    public void defineStatus(Subscription subscription){
-        LocalDateTime now = LocalDateTime.now();
-
-        if (now.isBefore(subscription.getDataFim())) {
-            subscription.setStatus('A');
-        } else if (now.isAfter(subscription.getDataFim())) {
-            subscription.setStatus('I');
-        } else {
-            subscription.setStatus('I');
-        }
-    }
 }

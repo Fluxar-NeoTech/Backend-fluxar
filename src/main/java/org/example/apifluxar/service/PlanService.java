@@ -14,7 +14,6 @@ import java.time.temporal.ChronoUnit;
 @Service
 public class PlanService {
     final PlanRepository planRepository;
-    private SubscriptionService subscriptionService;
 
     public PlanService(PlanRepository planRepository) {
         this.planRepository = planRepository;
@@ -23,7 +22,6 @@ public class PlanService {
     public PlanResponseDTO fromPlanResponseDTO(Plan plan) {
         PlanResponseDTO planResponseDTO = new PlanResponseDTO();
         planResponseDTO.setNome(plan.getNome());
-        planResponseDTO.setPreco(plan.getPreco());
         planResponseDTO.setDuracaoMeses(plan.getDuracaoMeses());
         return planResponseDTO;
     }

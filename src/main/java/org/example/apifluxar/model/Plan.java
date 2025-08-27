@@ -59,4 +59,16 @@ public class Plan {
     public void setDuracaoMeses(Integer duracaoMeses) {
         this.duracaoMeses = duracaoMeses;
     }
+
+    //ToString
+
+    @Override
+    public String toString() {
+        return "Plan{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", preco=" + preco +
+                ", duracaoMeses=" + duracaoMeses +
+                '}';
+    }
 }
