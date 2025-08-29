@@ -2,7 +2,7 @@ package org.example.apifluxar.model;
 
 import jakarta.persistence.*;
 
-@Table(name = "Plano")
+@Table(name = "plano")
 @Entity
 public class Plan {
     @Id
