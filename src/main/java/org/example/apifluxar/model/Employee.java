@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 // We only read this table, so no further validations are needed.
 @Entity
-@Table(name = "Funcionario")
+@Table(name = "funcionario")
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
