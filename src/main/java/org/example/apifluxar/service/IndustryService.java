@@ -1,5 +1,6 @@
 package org.example.apifluxar.service;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.example.apifluxar.dto.IndustryResponseDTO;
 import org.example.apifluxar.dto.PlanResponseDTO;
 import org.example.apifluxar.model.Industry;
@@ -11,21 +12,16 @@ import org.springframework.web.server.ResponseStatusException;
 
 @Service
 public class IndustryService {
-    final private IndustryRepository industryRepository;
+    final IndustryRepository industryRepository;
+    final ObjectMapper objectMapper;
 
-    public IndustryService(IndustryRepository industryRepository) {
+    public IndustryService(IndustryRepository industryRepository, ObjectMapper objectMapper) {
         this.industryRepository = industryRepository;
-    }
-
-    public IndustryResponseDTO fromIndustryResponseDTO(Industry industry) {
-        IndustryResponseDTO industryDTO = new IndustryResponseDTO();
-        industryDTO.setNome(industry.getNome());
-        industryDTO.setCnpj(industry.getCnpj());
-        return industryDTO;
+        this.objectMapper = objectMapper;
     }
 
     public IndustryResponseDTO getPlanById(Long id) {
         Industry industry = industryRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
-        return fromIndustryResponseDTO(industry);
+        return objectMapper.convertValue(industry, IndustryResponseDTO.class);
     }
 }
